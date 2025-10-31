@@ -1,65 +1,279 @@
-import Image from "next/image";
+import { ShoppingCart, Search, User, ChevronDown, Star, Menu } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="min-h-screen bg-ui-background-secondary">
+      {/* Announcement Bar */}
+      <div className="bg-brand-primary text-white py-2 text-center text-sm font-medium">
+        Southern Tradition, Perfectly Boiled. Free Shipping on Orders Over $50!
+      </div>
+
+      {/* Header */}
+      <header className="bg-white border-b border-ui-border-light sticky top-0 z-50">
+        <div className="container mx-auto px-4">
+          {/* Logo */}
+          <div className="py-6 text-center">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/DG_Logo_lg_600x.webp"
+              alt="Dixie Grace's Boiled Peanuts"
+              width={300}
+              height={80}
+              className="mx-auto h-20 w-auto"
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+
+          {/* Navigation */}
+          <nav className="border-t border-ui-border-light">
+            <div className="flex items-center justify-between py-4">
+              <div className="hidden lg:flex items-center gap-8 flex-1">
+                <NavLink>HOME</NavLink>
+                <NavLink dropdown>PRODUCTS</NavLink>
+                <NavLink>FAQs</NavLink>
+                <NavLink>AFFILIATE</NavLink>
+                <NavLink>CONTACT</NavLink>
+              </div>
+
+              {/* Mobile Menu Button */}
+              <button className="lg:hidden p-2 hover:bg-gray-100 rounded-full transition">
+                <Menu className="w-6 h-6 text-brand-primary" />
+              </button>
+
+              {/* Icons */}
+              <div className="flex items-center gap-4">
+                <button className="p-2 hover:bg-gray-100 rounded-full transition">
+                  <User className="w-5 h-5 text-brand-primary" />
+                </button>
+                <button className="p-2 hover:bg-gray-100 rounded-full transition">
+                  <Search className="w-5 h-5 text-brand-primary" />
+                </button>
+                <button className="p-2 hover:bg-gray-100 rounded-full transition">
+                  <ShoppingCart className="w-5 h-5 text-brand-primary" />
+                </button>
+              </div>
+            </div>
+          </nav>
         </div>
-      </main>
+      </header>
+
+      {/* Hero Section - Full Width Background */}
+      <section className="relative w-full h-[850px] overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-top bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/dixiebackground.webp)',
+            backgroundSize: '100% auto'
+          }}
+        >
+          {/* Optional overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full container mx-auto px-4 flex items-center">
+          <div className="max-w-2xl">
+            {/* Content removed */}
+          </div>
+        </div>
+      </section>
+
+      {/* Holiday Collection Title */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="font-serif text-4xl md:text-5xl text-center text-brand-primary mb-12">
+          The 2025 Holiday Collection
+        </h2>
+
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <ProductCard
+            image="🎁"
+            title="Wild Cacao Ensemble"
+            price="$110"
+            rating={0}
+            reviews="No reviews"
+          />
+          <ProductCard
+            image="☕"
+            title="The Grand Flight"
+            price="$80"
+            rating={0}
+            reviews="No reviews"
+          />
+          <ProductCard
+            image="🎄"
+            title="Vosges Holiday Hatbox"
+            price="$145"
+            rating={4.9}
+            reviews="70 reviews"
+          />
+          <ProductCard
+            image="🏰"
+            title="2025 Haut-Chocolat Advent Calendar"
+            price="$375"
+            rating={4.8}
+            reviews="734 reviews"
+          />
+        </div>
+
+        {/* Shop All Button */}
+        <div className="text-center">
+          <button className="border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-12 py-3 text-sm font-medium tracking-wider transition-colors">
+            SHOP ALL
+          </button>
+        </div>
+      </section>
+
+      {/* Mellon Collie Section */}
+      <section className="bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="flex items-center justify-center p-8 md:p-16">
+            <div className="max-w-md">
+              <h2 className="font-serif text-3xl md:text-4xl text-brand-primary mb-6">
+                The Mellon Collie Sessions: A Curious Contemplation of Music & Chocolate
+              </h2>
+            </div>
+          </div>
+          <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-red-700 via-teal-600 to-purple-900">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Image
+                src="/DG_Original_Rendering_Transparent.webp"
+                alt="Dixie Grace's Artisanal Boiled Peanuts"
+                width={400}
+                height={400}
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Le Jardin de Cacao Section */}
+      <section className="bg-ui-background-secondary">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="relative h-[500px] md:h-[600px]">
+            <div className="absolute inset-0 bg-gradient-to-br from-teal-700 to-blue-900 flex items-center justify-center p-8">
+              <Image
+                src="/DixieGrace_sStarterKit.webp"
+                alt="Dixie Grace Starter Kit"
+                width={400}
+                height={400}
+                className="object-contain"
+              />
+            </div>
+          </div>
+          <div className="flex items-center justify-center p-8 md:p-16 bg-white">
+            <div className="max-w-md text-center">
+              <h2 className="font-serif text-3xl md:text-4xl text-brand-primary mb-6">
+                Le Jardin de Cacao
+              </h2>
+              <p className="text-brand-primary mb-8 text-lg">
+                Sells out before the first snowflake hits the ground! Reserve your Haut-Chocolat Advent Calendar before they're gone.
+              </p>
+              <button className="bg-brand-primary hover:bg-brand-primaryHover text-white px-12 py-3 text-sm font-medium tracking-wider transition-colors">
+                OPEN THE DOORS
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-brand-primary text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="font-semibold mb-4 tracking-wider text-sm">SHOP</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:underline">All Chocolates</a></li>
+                <li><a href="#" className="hover:underline">Collections</a></li>
+                <li><a href="#" className="hover:underline">Gift Sets</a></li>
+                <li><a href="#" className="hover:underline">Subscriptions</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4 tracking-wider text-sm">EXPERIENCE</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:underline">Our Story</a></li>
+                <li><a href="#" className="hover:underline">Locations</a></li>
+                <li><a href="#" className="hover:underline">Events</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4 tracking-wider text-sm">HELP</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:underline">Contact Us</a></li>
+                <li><a href="#" className="hover:underline">Shipping</a></li>
+                <li><a href="#" className="hover:underline">Returns</a></li>
+                <li><a href="#" className="hover:underline">FAQ</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4 tracking-wider text-sm">CONNECT</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:underline">Instagram</a></li>
+                <li><a href="#" className="hover:underline">Facebook</a></li>
+                <li><a href="#" className="hover:underline">Newsletter</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-purple-400 pt-8 text-center text-sm">
+            <Image
+              src="/DG_Logo_lg_600x.webp"
+              alt="Dixie Grace's Boiled Peanuts"
+              width={200}
+              height={60}
+              className="mx-auto h-16 w-auto mb-4"
+            />
+            <p className="text-xs">© 2025 Dixie Grace's Boiled Peanuts. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
-  );
+  )
+}
+
+function NavLink({ children, dropdown = false }: { children: React.ReactNode, dropdown?: boolean }) {
+  return (
+    <button className="flex items-center gap-1 text-sm font-medium text-brand-primary hover:text-brand-primaryHover tracking-wide transition">
+      {children}
+      {dropdown && <ChevronDown className="w-4 h-4" />}
+    </button>
+  )
+}
+
+function ProductCard({ image, title, price, rating, reviews }: {
+  image: string
+  title: string
+  price: string
+  rating: number
+  reviews: string
+}) {
+  return (
+    <div className="border-none shadow-none bg-white hover:shadow-lg transition-shadow duration-300 rounded-lg overflow-hidden">
+      <div className="aspect-square bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center text-6xl">
+        {image}
+      </div>
+      <div className="p-4">
+        <h3 className="font-medium text-brand-primary mb-2 text-sm h-10">{title}</h3>
+        <div className="flex items-center gap-1 mb-2">
+          {rating > 0 ? (
+            <>
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3 h-3 fill-brand-primary text-brand-primary" />
+              ))}
+              <span className="text-xs text-gray-600 ml-1">{reviews}</span>
+            </>
+          ) : (
+            <span className="text-xs text-gray-500">{reviews}</span>
+          )}
+        </div>
+        <p className="text-brand-primary font-semibold mb-4">{price}</p>
+        <button className="w-full bg-brand-primary hover:bg-brand-primaryHover text-white text-xs tracking-wider py-3 transition-colors">
+          ADD TO BAG
+        </button>
+      </div>
+    </div>
+  )
 }
