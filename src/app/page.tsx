@@ -1,5 +1,6 @@
 import { ShoppingCart, Search, User, ChevronDown, Star, Menu } from 'lucide-react'
 import Image from 'next/image'
+import { withBasePath } from '@/lib/basePath'
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
           {/* Logo */}
           <div className="py-6 text-center">
             <Image
-              src="/DG_Logo_lg_600x.webp"
+              src={withBasePath("/DG_Logo_lg_600x.webp")}
               alt="Dixie Grace's Boiled Peanuts"
               width={300}
               height={80}
@@ -63,7 +64,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-top bg-no-repeat"
           style={{
-            backgroundImage: 'url(/dixiebackground.webp)',
+            backgroundImage: `url(${withBasePath('/dixiebackground.webp')})`,
             backgroundSize: '100% auto'
           }}
         >
@@ -138,7 +139,7 @@ export default function Home() {
           <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-red-700 via-teal-600 to-purple-900">
             <div className="absolute inset-0 flex items-center justify-center">
               <Image
-                src="/DG_Original_Rendering_Transparent.webp"
+                src={withBasePath("/DG_Original_Rendering_Transparent.webp")}
                 alt="Dixie Grace's Artisanal Boiled Peanuts"
                 width={400}
                 height={400}
@@ -155,7 +156,7 @@ export default function Home() {
           <div className="relative h-[500px] md:h-[600px]">
             <div className="absolute inset-0 bg-gradient-to-br from-teal-700 to-blue-900 flex items-center justify-center p-8">
               <Image
-                src="/DixieGrace_sStarterKit.webp"
+                src={withBasePath("/DixieGrace_sStarterKit.webp")}
                 alt="Dixie Grace Starter Kit"
                 width={400}
                 height={400}
@@ -169,7 +170,7 @@ export default function Home() {
                 Le Jardin de Cacao
               </h2>
               <p className="text-brand-primary mb-8 text-lg">
-                Sells out before the first snowflake hits the ground! Reserve your Haut-Chocolat Advent Calendar before they're gone.
+                Sells out before the first snowflake hits the ground! Reserve your Haut-Chocolat Advent Calendar before they&apos;re gone.
               </p>
               <button className="bg-brand-primary hover:bg-brand-primaryHover text-white px-12 py-3 text-sm font-medium tracking-wider transition-colors">
                 OPEN THE DOORS
@@ -220,13 +221,13 @@ export default function Home() {
           </div>
           <div className="border-t border-purple-400 pt-8 text-center text-sm">
             <Image
-              src="/DG_Logo_lg_600x.webp"
+              src={withBasePath("/DG_Logo_lg_600x.webp")}
               alt="Dixie Grace's Boiled Peanuts"
               width={200}
               height={60}
               className="mx-auto h-16 w-auto mb-4"
             />
-            <p className="text-xs">© 2025 Dixie Grace's Boiled Peanuts. All rights reserved.</p>
+            <p className="text-xs">© 2025 Dixie Grace&apos;s Boiled Peanuts. All rights reserved.</p>
           </div>
         </div>
       </footer>
