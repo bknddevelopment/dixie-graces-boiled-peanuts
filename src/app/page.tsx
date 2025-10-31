@@ -1,7 +1,6 @@
 import { ShoppingCart, Search, User, ChevronDown, Star, Menu } from 'lucide-react'
-import Image from 'next/image'
 
-// BasePath for GitHub Pages - used for logos and CSS backgrounds
+// BasePath for GitHub Pages - all images now use regular img tags
 const BASE_PATH = '/dixie-graces-boiled-peanuts';
 
 export default function Home() {
@@ -139,8 +138,8 @@ export default function Home() {
           </div>
           <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-red-700 via-teal-600 to-purple-900">
             <div className="absolute inset-0 flex items-center justify-center">
-              <Image
-                src="/DG_Original_Rendering_Transparent.webp"
+              <img
+                src={`${BASE_PATH}/DG_Original_Rendering_Transparent.webp`}
                 alt="Dixie Grace's Artisanal Boiled Peanuts"
                 width={400}
                 height={400}
@@ -156,8 +155,8 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="relative h-[500px] md:h-[600px]">
             <div className="absolute inset-0 bg-gradient-to-br from-teal-700 to-blue-900 flex items-center justify-center p-8">
-              <Image
-                src="/DixieGrace_sStarterKit.webp"
+              <img
+                src={`${BASE_PATH}/DixieGrace_sStarterKit.webp`}
                 alt="Dixie Grace Starter Kit"
                 width={400}
                 height={400}
