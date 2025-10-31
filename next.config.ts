@@ -1,14 +1,13 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === 'production';
 const repoName = 'dixie-graces-boiled-peanuts';
 
 const nextConfig: NextConfig = {
   output: 'export',
 
-  // GitHub Pages configuration
-  basePath: isProd ? `/${repoName}` : '',
-  assetPrefix: isProd ? `/${repoName}` : '',
+  // GitHub Pages configuration - always use basePath for static export
+  basePath: `/${repoName}`,
+  assetPrefix: `/${repoName}`,
 
   // Ensure images work with static export
   images: {

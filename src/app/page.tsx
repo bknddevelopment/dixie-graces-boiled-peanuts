@@ -1,6 +1,8 @@
 import { ShoppingCart, Search, User, ChevronDown, Star, Menu } from 'lucide-react'
 import Image from 'next/image'
-import { withBasePath } from '@/lib/basePath'
+
+// BasePath for GitHub Pages - used for CSS backgrounds only
+const BASE_PATH = '/dixie-graces-boiled-peanuts';
 
 export default function Home() {
   return (
@@ -16,7 +18,7 @@ export default function Home() {
           {/* Logo */}
           <div className="py-6 text-center">
             <Image
-              src={withBasePath("/DG_Logo_lg_600x.webp")}
+              src="/DG_Logo_lg_600x.webp"
               alt="Dixie Grace's Boiled Peanuts"
               width={300}
               height={80}
@@ -64,7 +66,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-top bg-no-repeat"
           style={{
-            backgroundImage: `url(${withBasePath('/dixiebackground.webp')})`,
+            backgroundImage: `url(${BASE_PATH}/dixiebackground.webp)`,
             backgroundSize: '100% auto'
           }}
         >
@@ -139,7 +141,7 @@ export default function Home() {
           <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-red-700 via-teal-600 to-purple-900">
             <div className="absolute inset-0 flex items-center justify-center">
               <Image
-                src={withBasePath("/DG_Original_Rendering_Transparent.webp")}
+                src="/DG_Original_Rendering_Transparent.webp"
                 alt="Dixie Grace's Artisanal Boiled Peanuts"
                 width={400}
                 height={400}
@@ -156,7 +158,7 @@ export default function Home() {
           <div className="relative h-[500px] md:h-[600px]">
             <div className="absolute inset-0 bg-gradient-to-br from-teal-700 to-blue-900 flex items-center justify-center p-8">
               <Image
-                src={withBasePath("/DixieGrace_sStarterKit.webp")}
+                src="/DixieGrace_sStarterKit.webp"
                 alt="Dixie Grace Starter Kit"
                 width={400}
                 height={400}
@@ -221,7 +223,7 @@ export default function Home() {
           </div>
           <div className="border-t border-purple-400 pt-8 text-center text-sm">
             <Image
-              src={withBasePath("/DG_Logo_lg_600x.webp")}
+              src="/DG_Logo_lg_600x.webp"
               alt="Dixie Grace's Boiled Peanuts"
               width={200}
               height={60}
