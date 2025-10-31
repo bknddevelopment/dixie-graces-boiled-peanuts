@@ -1,7 +1,7 @@
 import { ShoppingCart, Search, User, ChevronDown, Star, Menu } from 'lucide-react'
 import Image from 'next/image'
 
-// BasePath for GitHub Pages - used for CSS backgrounds only
+// BasePath for GitHub Pages - used for logos and CSS backgrounds
 const BASE_PATH = '/dixie-graces-boiled-peanuts';
 
 export default function Home() {
@@ -17,13 +17,12 @@ export default function Home() {
         <div className="container mx-auto px-4">
           {/* Logo */}
           <div className="py-6 text-center">
-            <Image
-              src="/DG_Logo_lg_600x.webp"
+            <img
+              src={`${BASE_PATH}/DG_Logo_lg_600x.webp`}
               alt="Dixie Grace's Boiled Peanuts"
               width={300}
               height={80}
               className="mx-auto h-20 w-auto"
-              priority
             />
           </div>
 
@@ -222,8 +221,8 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-purple-400 pt-8 text-center text-sm">
-            <Image
-              src="/DG_Logo_lg_600x.webp"
+            <img
+              src={`${BASE_PATH}/DG_Logo_lg_600x.webp`}
               alt="Dixie Grace's Boiled Peanuts"
               width={200}
               height={60}
